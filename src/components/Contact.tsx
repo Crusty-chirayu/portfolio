@@ -30,7 +30,7 @@ const Contact = () => {
 
             <h4>Education</h4>
             <p>
-              B.E. Computer Engineering — Visvesvaraya Technological University (VTU) — 2022–2026
+              B.E. Computer Engineering — Visvesvaraya Technological University (VTU) — 2023–2027
             </p>
           </div>
 
