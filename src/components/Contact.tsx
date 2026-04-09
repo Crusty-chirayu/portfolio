@@ -11,27 +11,33 @@ const Contact = () => {
             <h4>Connect</h4>
             <p>
               <a
-                href="https://www.linkedin.com/in/akashrmalhotra/"
+                href="https://linkedin.com/in/chirayu-babu-jaysawal-916a6a2a2"
                 target="_blank"
                 rel="noreferrer"
                 data-cursor="disable"
               >
-                LinkedIn — akashrmalhotra
+                LinkedIn — chirayu-babu-jaysawal
               </a>
             </p>
+            <p>
+              <a
+                href="mailto:chirayujayaswal7@gmail.com"
+                data-cursor="disable"
+              >
+                Email — chirayujayaswal7@gmail.com
+              </a>
+            </p>
+
             <h4>Education</h4>
             <p>
-              PGPWE (MBA), Indian Institute of Management, Lucknow — 2021–2023
-            </p>
-            <p>
-              B.Tech Computer Science, Manav Rachna Educational Institutions —
-              2009–2013
+              B.E. Computer Engineering — Visvesvaraya Technological University (VTU) — 2022–2026
             </p>
           </div>
+
           <div className="contact-box">
             <h4>Social</h4>
             <a
-              href="https://github.com/akashrmalhotra"
+              href="https://github.com/Crusty-chirayu"
               target="_blank"
               rel="noreferrer"
               data-cursor="disable"
@@ -40,7 +46,7 @@ const Contact = () => {
               GitHub <MdArrowOutward />
             </a>
             <a
-              href="https://www.linkedin.com/in/akashrmalhotra/"
+              href="https://linkedin.com/in/chirayu-babu-jaysawal-916a6a2a2"
               target="_blank"
               rel="noreferrer"
               data-cursor="disable"
@@ -48,28 +54,11 @@ const Contact = () => {
             >
               LinkedIn <MdArrowOutward />
             </a>
-            <a
-              href="https://www.youtube.com/@Leftbraincoder"
-              target="_blank"
-              rel="noreferrer"
-              data-cursor="disable"
-              className="contact-social"
-            >
-              YouTube <MdArrowOutward />
-            </a>
-            <a
-              href="https://www.instagram.com/leftbraincoder/"
-              target="_blank"
-              rel="noreferrer"
-              data-cursor="disable"
-              className="contact-social"
-            >
-              Instagram <MdArrowOutward />
-            </a>
           </div>
+
           <div className="contact-box">
             <h2>
-              Designed and Developed <br /> by <span>Akash Malhotra</span>
+              Designed and Developed <br /> by <span>Chirayu Jaysawal</span>
             </h2>
             <h5>
               <MdCopyright /> 2026

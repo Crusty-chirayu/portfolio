@@ -5,32 +5,32 @@ import { MdArrowBack, MdArrowForward } from "react-icons/md";
 
 const projects = [
   {
-    title: "CallHQ",
-    category: "Voice AI Calling Platform",
-    tools: "Voice AI, Calling Automation, CRM Integrations",
+    title: "CartIQ",
+    category: "AI-Powered Smart Shopping Assistant",
+    tools: "React, Node.js, MongoDB, Gemini API",
     image: "/images/callhq.png",
-    link: "https://callhq.ai",
+    link: "https://github.com/Crusty-chirayu",
   },
   {
-    title: "Whatsapp Automation",
-    category: "WABA Application",
-    tools: "WhatsApp Business API, Workflow Automation, Notifications",
+    title: "Face Recognition System",
+    category: "Computer Vision & Machine Learning",
+    tools: "Python, OpenCV, Real-time Detection",
     image: "/images/whatsapp.png",
-    link: "https://whatsapp.callhq.ai",
+    link: "https://github.com/Crusty-chirayu",
   },
   {
-    title: "Broki",
-    category: "Real Estate Platform for FnB Industry",
-    tools: "Property Discovery, Lead Management, Marketplace Workflows",
+    title: "Hotel Management System",
+    category: "Desktop Application",
+    tools: "Java, Swing, GUI Development",
     image: "/images/broki.png",
-    link: "https://broki.in",
+    link: "https://github.com/Crusty-chirayu",
   },
   {
-    title: "Orrdr.com",
-    category: "Ecommerce Platform and Mobile App",
-    tools: "Ecommerce, Mobile Experience, Order Management",
+    title: "IoT Sensor Projects",
+    category: "Hardware & Embedded Systems",
+    tools: "Arduino, Sensors, C Programming, IoT",
     image: "/images/orrdr.png",
-    link: "https://orrdr.com",
+    link: "https://github.com/Crusty-chirayu",
   },
 ];
 
@@ -130,8 +130,9 @@ const Work = () => {
             {projects.map((_, index) => (
               <button
                 key={index}
-                className={`carousel-dot ${index === currentIndex ? "carousel-dot-active" : ""
-                  }`}
+                className={`carousel-dot ${
+                  index === currentIndex ? "carousel-dot-active" : ""
+                }`}
                 onClick={() => goToSlide(index)}
                 aria-label={`Go to project ${index + 1}`}
                 data-cursor="disable"

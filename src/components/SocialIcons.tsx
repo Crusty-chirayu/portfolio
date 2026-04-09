@@ -1,8 +1,7 @@
 import {
   FaGithub,
-  FaInstagram,
   FaLinkedinIn,
-  FaYoutube,
+  FaInstagram,
 } from "react-icons/fa6";
 import "./styles/SocialIcons.css";
 import { TbNotes } from "react-icons/tb";
@@ -59,46 +58,46 @@ const SocialIcons = () => {
   return (
     <div className="icons-section">
       <div className="social-icons" data-cursor="icons" id="social">
+
+        {/* GitHub */}
         <span>
           <a
-            href="https://github.com/akashrmalhotra"
+            href="https://github.com/Crusty-chirayu"
             target="_blank"
             rel="noreferrer"
           >
             <FaGithub />
           </a>
         </span>
+
+        {/* LinkedIn */}
         <span>
           <a
-            href="https://www.linkedin.com/in/akashrmalhotra/"
+            href="https://linkedin.com/in/chirayu-babu-jaysawal-916a6a2a2"
             target="_blank"
             rel="noreferrer"
           >
             <FaLinkedinIn />
           </a>
         </span>
+
+        {/* Instagram */}
         <span>
           <a
-            href="https://www.youtube.com/@Leftbraincoder"
-            target="_blank"
-            rel="noreferrer"
-          >
-            <FaYoutube />
-          </a>
-        </span>
-        <span>
-          <a
-            href="https://www.instagram.com/leftbraincoder/"
+            href="https://www.instagram.com/crusty__chirayu/?hl=en"
             target="_blank"
             rel="noreferrer"
           >
             <FaInstagram />
           </a>
         </span>
+
       </div>
+
+      {/* Resume */}
       <a
         className="resume-button"
-        href="/Akash_Malhotra.pdf"
+        href="/resume.pdf"
         target="_blank"
         rel="noreferrer"
       >

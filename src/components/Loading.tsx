@@ -46,8 +46,9 @@ const Loading = ({ percent }: { percent: number }) => {
     <>
       <div className="loading-header">
         <a href="/#" className="loader-title" data-cursor="disable">
-          AM
+          CJ
         </a>
+
         <div className={`loaderGame ${clicked && "loader-out"}`}>
           <div className="loaderGame-container">
             <div className="loaderGame-in">
@@ -59,18 +60,23 @@ const Loading = ({ percent }: { percent: number }) => {
           </div>
         </div>
       </div>
+
       <div className="loading-screen">
         <div className="loading-marquee">
           <Marquee>
-            <span> Full Stack Developer</span> <span>Software Engineer</span>
-            <span> Full Stack Developer</span> <span>Software Engineer</span>
+            <span> Full Stack Developer</span>
+            <span> IoT & AI Enthusiast</span>
+            <span> Full Stack Developer</span>
+            <span> IoT & AI Enthusiast</span>
           </Marquee>
         </div>
+
         <div
           className={`loading-wrap ${clicked && "loading-clicked"}`}
           onMouseMove={(e) => handleMouseMove(e)}
         >
           <div className="loading-hover"></div>
+
           <div className={`loading-button ${loaded && "loading-complete"}`}>
             <div className="loading-container">
               <div className="loading-content">
@@ -80,6 +86,7 @@ const Loading = ({ percent }: { percent: number }) => {
               </div>
               <div className="loading-box"></div>
             </div>
+
             <div className="loading-content2">
               <span>Welcome</span>
             </div>
@@ -131,5 +138,6 @@ export const setProgress = (setLoading: (value: number) => void) => {
       }, 2);
     });
   }
+
   return { loaded, percent, clear };
 };
