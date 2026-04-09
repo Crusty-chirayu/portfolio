@@ -15,7 +15,7 @@ const Career = () => {
           </div>
 
           <div className="career-middle">
-            <h2>2022–26</h2>
+            <h2>2023–2027</h2>
           </div>
 
           <div className="career-right">
