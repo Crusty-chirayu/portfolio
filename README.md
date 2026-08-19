@@ -11,7 +11,7 @@
 
 ## Preview
 
-[Hero Section]<img width="1892" height="929" alt="Screenshot_20260423_164544" src="https://github.com/user-attachments/assets/17aefa47-8b37-4e04-8192-5d3950a0d280" />
+<img width="1892" height="929" alt="Screenshot_20260423_164544" src="https://github.com/user-attachments/assets/17aefa47-8b37-4e04-8192-5d3950a0d280" />
 
 
 ---
