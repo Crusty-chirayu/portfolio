@@ -2,6 +2,8 @@
 
 <img src="https://capsule-render.vercel.app/api?type=waving&color=gradient&customColorList=6366f1,14b8a6&height=200&section=header&text=Chirayu%20Jaysawal&fontSize=48&fontColor=ffffff&animation=fadeIn&fontAlignY=35&desc=Computer%20Engineering%20Student%20%7C%20Full%20Stack%20Developer%20%7C%20AI%20Enthusiast&descAlignY=55&descSize=18" width="100%"/>
 
+<img src="https://readme-typing-svg.demolab.com?font=Fira+Code&weight=600&size=20&pause=1000&color=6366F1&center=true&vCenter=true&width=600&lines=Building+with+Next.js+%2B+Supabase;Shipping+AI-native+products;Currently%3A+CartIQ+%C2%B7+TrailMate+%C2%B7+Envoy+%C2%B7+Confluence;Always+open+to+collaborate" alt="Typing SVG" />
+
 <br/>
 
 [![Live Demo](https://img.shields.io/badge/Live%20Demo-Visit%20Portfolio-6366f1?style=for-the-badge&logo=vercel&logoColor=white)](https://portfolio-lac-kappa-49.vercel.app)
@@ -14,6 +16,9 @@
 <img src="https://img.shields.io/github/stars/Crusty-chirayu/portfolio?style=for-the-badge&color=6366f1&labelColor=181717" />
 <img src="https://img.shields.io/github/last-commit/Crusty-chirayu/portfolio?style=for-the-badge&color=14b8a6&labelColor=181717" />
 <img src="https://img.shields.io/website?url=https%3A%2F%2Fportfolio-lac-kappa-49.vercel.app&style=for-the-badge&label=status&up_color=6366f1&up_message=online&labelColor=181717" />
+
+<br/>
+<sub>👀 <img src="https://komarev.com/ghpvc/?username=Crusty-chirayu&label=Profile+Views&color=6366f1&style=flat" alt="Profile views" /></sub>
 
 </div>
 
@@ -52,6 +57,23 @@ Contact       →  Get in touch
 
 <br/>
 
+## 🔭 Currently Building
+
+<div align="center">
+
+| Project | What It Is | Status |
+|---|---|:---:|
+| 🛒 **[CartIQ](https://github.com/Crusty-chirayu)** | AI-powered smart shopping assistant | 🟢 Active |
+| 🏔️ **[TrailMate](https://github.com/Crusty-chirayu/TrailMate)** | GPS trail tracking & outdoor trip planner | 🟡 In progress |
+| ⚡ **[Envoy](https://github.com/Crusty-chirayu/envoy)** | Free, open-source AI career agent | 🟡 In progress |
+| 🌌 **[Confluence](https://github.com/Crusty-chirayu/Group-Chatbot)** | ChatGPT × Discord hybrid AI chat platform | 🟢 Active |
+
+</div>
+
+<sub>A handful of these are mid-build right now, so expect commits in bursts rather than a steady drip — each one links out to its own README with full architecture docs.</sub>
+
+<br/>
+
 ## 🚀 Featured Projects
 
 <div align="center">
@@ -59,8 +81,11 @@ Contact       →  Get in touch
 | # | Project | Description | Stack |
 |:-:|---|---|---|
 | 01 | **[CartIQ](https://github.com/Crusty-chirayu)** | AI-Powered Smart Shopping Assistant | Next.js · TypeScript · Supabase · TailwindCSS · DeepSeek (via OpenRouter) |
-| 02 | **[ReForge](https://github.com/Crusty-chirayu)** | High-performance backend service | TypeScript · Fastify |
-| 03 | **[Hotel Management System](https://github.com/Crusty-chirayu/Hotel-Management-System)** | Desktop hotel operations suite | Java Swing · MySQL |
+| 02 | **[TrailMate](https://github.com/Crusty-chirayu/TrailMate)** | Outdoor trip planning & GPS trail tracking platform | Next.js · TypeScript · Supabase · TailwindCSS |
+| 03 | **[Envoy](https://github.com/Crusty-chirayu/envoy)** | Autonomous AI career agent — resumes, CVs & portfolios | Agentic pipeline · Next.js/Python · Open templates |
+| 04 | **[Confluence](https://github.com/Crusty-chirayu/Group-Chatbot)** | 1:1 + group AI chat platform with realtime shared streaming | Next.js 16 · Supabase · OpenRouter |
+| 05 | **[ReForge](https://github.com/Crusty-chirayu)** | High-performance backend service | TypeScript · Fastify |
+| 06 | **[Hotel Management System](https://github.com/Crusty-chirayu/Hotel-Management-System)** | Desktop hotel operations suite | Java Swing · MySQL |
 
 </div>
 
@@ -95,14 +120,35 @@ Contact       →  Get in touch
 
 </div>
 
+<div align="center">
+<img src="https://skillicons.dev/icons?i=nodejs,js,nextjs,ts,tailwind,mongodb,mysql,supabase,react,vite,figma,git&perline=6" />
+</div>
+
 <br/>
 
 ## 📊 GitHub Stats
 
 <div align="center">
 
+<img src="https://github-readme-stats.vercel.app/api?username=Crusty-chirayu&show_icons=true&theme=radical&hide_border=true&count_private=true" width="49%" />
+<img src="https://github-readme-stats.vercel.app/api/top-langs/?username=Crusty-chirayu&layout=compact&theme=radical&hide_border=true" width="35%" />
+
+<br/>
+
 <img src="https://github-readme-streak-stats.herokuapp.com/?user=Crusty-chirayu&theme=radical&hide_border=true" width="49%" />
 
+<br/>
+
+<img src="https://github-readme-activity-graph.vercel.app/graph?username=Crusty-chirayu&theme=redical&hide_border=true" width="90%" />
+
+</div>
+
+<br/>
+
+## 🏆 GitHub Trophies
+
+<div align="center">
+<img src="https://github-profile-trophy.vercel.app/?username=Crusty-chirayu&theme=radical&no-frame=true&row=1&column=6" />
 </div>
 
 <br/>
@@ -161,7 +207,7 @@ Deployed on **Vercel** — auto-deploys on every push to `main`.
 - [x] Dark cyberpunk aesthetic with 3D hero avatar
 - [x] Interactive physics-based tech stack visualizer
 - [x] Featured project showcase
-- [ ] Case-study pages for CartIQ and ReForge
+- [ ] Case-study pages for CartIQ, TrailMate, Envoy & Confluence
 - [ ] Blog / writing section
 - [ ] Light mode toggle
 
