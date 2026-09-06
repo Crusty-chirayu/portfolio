@@ -29,13 +29,17 @@ const Navbar = () => {
       if (window.innerWidth > 1024) {
         e.preventDefault();
         const link = e.currentTarget as HTMLAnchorElement;
-        const section = link.getAttribute("data-href");
+        /* data-href for navbar links; falls back to href for the hero CTA. */
+        const section =
+          link.getAttribute("data-href") || link.getAttribute("href");
         instance.scrollTo(section, true, "top top");
       }
     };
 
     const navLinks = Array.from(
-      document.querySelectorAll<HTMLAnchorElement>(".header ul a")
+      document.querySelectorAll<HTMLAnchorElement>(
+        ".header ul a, .landing-cta[href^='#']"
+      )
     );
     navLinks.forEach((link) => link.addEventListener("click", onNavClick));
 

@@ -50,7 +50,9 @@
     width: var(--cWidth);
     justify-content: right;
     max-width: 1920px;
-    height: var(--vh);
+    /* min-height instead of fixed height: the personalized About copy is
+       longer than one viewport, and a hard 100vh height clipped it. */
+    min-height: var(--vh);
     padding: 0px;
     opacity: 1;
   }

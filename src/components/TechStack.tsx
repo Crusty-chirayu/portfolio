@@ -311,7 +311,12 @@ const TechStack = () => {
     return () => {
       observer.disconnect();
     };
-  }, []);
+    /*
+     * Re-run when the WebGL check resolves: on first render the fallback
+     * (which has no section ref) is shown, so this effect must attach the
+     * observer only after the WebGL branch has mounted the ref'd element.
+     */
+  }, [webGLAvailable]);
 
   /* ------------------------------------------------------------------------ */
   /* Scroll activation                                                        */
