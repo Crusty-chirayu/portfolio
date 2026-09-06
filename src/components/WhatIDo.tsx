@@ -87,20 +87,26 @@ const WhatIDo = () => {
             <div className="what-corner"></div>
 
             <div className="what-content-in">
-              <h3>AI & AUTOMATION</h3>
-              <h4>Workflow Intelligence for Organizations</h4>
+              <h3>FULL-STACK DEVELOPMENT</h3>
+              <h4>Building Complete Digital Products</h4>
               <p>
-                AI specialist helping organizations automate workflows—internal ops
-                and customer-facing—so teams ship faster with less manual work.
+                I build web applications across the stack — from frontend
+                interfaces and product experience to backend logic, APIs,
+                databases, and authentication. I enjoy taking an idea from the
+                interface all the way through the database into a working
+                application.
               </p>
               <h5>Skillset & tools</h5>
               <div className="what-content-flex">
-                <div className="what-tags">LLMs &amp; agents</div>
-                <div className="what-tags">Workflow design</div>
-                <div className="what-tags">RAG &amp; retrieval</div>
-                <div className="what-tags">Evals &amp; guardrails</div>
-                <div className="what-tags">Integrations</div>
-                <div className="what-tags">Product strategy</div>
+                <div className="what-tags">React</div>
+                <div className="what-tags">Next.js</div>
+                <div className="what-tags">TypeScript</div>
+                <div className="what-tags">Node.js</div>
+                <div className="what-tags">FastAPI</div>
+                <div className="what-tags">REST APIs</div>
+                <div className="what-tags">Supabase</div>
+                <div className="what-tags">MongoDB</div>
+                <div className="what-tags">MySQL</div>
               </div>
               <div className="what-arrow"></div>
             </div>
@@ -124,21 +130,26 @@ const WhatIDo = () => {
             </div>
             <div className="what-corner"></div>
             <div className="what-content-in">
-              <h3>BUILD &amp; SCALE</h3>
-              <h4>Shipping AI in Production</h4>
+              <h3>AI, SYSTEMS &amp; IoT</h3>
+              <h4>Connecting Intelligence with Engineering</h4>
               <p>
-                I build the systems behind it: APIs, data, voice/real-time, and
-                full-stack products—production-ready, not slide decks.
+                I am actively exploring how to integrate AI into useful software
+                — AI assistants, intelligent product experiences, and automation
+                — while also working with systems, hardware, and IoT. I enjoy
+                bridging software with sensors and connected devices to build
+                complete end-to-end products.
               </p>
               <h5>Skillset & tools</h5>
               <div className="what-content-flex">
-                <div className="what-tags">Node.js</div>
+                <div className="what-tags">AI Integration</div>
+                <div className="what-tags">LLMs</div>
                 <div className="what-tags">Python</div>
-                <div className="what-tags">REST &amp; real-time APIs</div>
-                <div className="what-tags">PostgreSQL</div>
-                <div className="what-tags">MongoDB</div>
-                <div className="what-tags">React</div>
-                <div className="what-tags">Cloud &amp; infra</div>
+                <div className="what-tags">IoT</div>
+                <div className="what-tags">Sensors</div>
+                <div className="what-tags">Automation</div>
+                <div className="what-tags">APIs</div>
+                <div className="what-tags">Systems</div>
+                <div className="what-tags">Hardware</div>
               </div>
               <div className="what-arrow"></div>
             </div>

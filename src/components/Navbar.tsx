@@ -10,7 +10,7 @@ export let smoother: ScrollSmoother;
 
 const Navbar = () => {
   useEffect(() => {
-    smoother = ScrollSmoother.create({
+    const instance = ScrollSmoother.create({
       wrapper: "#smooth-wrapper",
       content: "#smooth-content",
       smooth: 1.7,
@@ -20,24 +20,35 @@ const Navbar = () => {
       ignoreMobileResize: true,
     });
 
-    smoother.scrollTop(0);
-    smoother.paused(true);
+    smoother = instance;
 
-    let links = document.querySelectorAll(".header ul a");
-    links.forEach((elem) => {
-      let element = elem as HTMLAnchorElement;
-      element.addEventListener("click", (e) => {
-        if (window.innerWidth > 1024) {
-          e.preventDefault();
-          let elem = e.currentTarget as HTMLAnchorElement;
-          let section = elem.getAttribute("data-href");
-          smoother.scrollTo(section, true, "top top");
-        }
-      });
-    });
-    window.addEventListener("resize", () => {
+    instance.scrollTop(0);
+    instance.paused(true);
+
+    const onNavClick = (e: Event) => {
+      if (window.innerWidth > 1024) {
+        e.preventDefault();
+        const link = e.currentTarget as HTMLAnchorElement;
+        const section = link.getAttribute("data-href");
+        instance.scrollTo(section, true, "top top");
+      }
+    };
+
+    const navLinks = Array.from(
+      document.querySelectorAll<HTMLAnchorElement>(".header ul a")
+    );
+    navLinks.forEach((link) => link.addEventListener("click", onNavClick));
+
+    const onResize = () => {
       ScrollSmoother.refresh(true);
-    });
+    };
+    window.addEventListener("resize", onResize);
+
+    return () => {
+      navLinks.forEach((link) => link.removeEventListener("click", onNavClick));
+      window.removeEventListener("resize", onResize);
+      instance.kill();
+    };
   }, []);
 
   return (

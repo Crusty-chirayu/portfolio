@@ -1,582 +1,582 @@
-.landing-section {
-  width: 100%;
-  max-width: var(--cMaxWidth);
-  margin: auto;
-  position: relative;
-  height: var(--vh);
-}
-
-.landing-container {
-  width: var(--cWidth);
-  margin: auto;
-  height: 100%;
-  position: relative;
-  max-width: var(--cMaxWidth);
-}
-
-.landing-circle1 {
-  top: 0%;
-  left: 0%;
-  z-index: 15;
-  position: fixed;
-  width: 300px;
-  height: 300px;
-  background-color: #22d3ee;
-  box-shadow: inset -50px 40px 50px rgba(0, 180, 180, 0.6);
-  filter: blur(60px);
-  border-radius: 50%;
-  animation: loadingCircle 5s linear infinite;
-}
-
-.nav-fade {
-  position: fixed;
-  top: 0;
-  width: 100%;
-  height: 130px;
-  background-image: linear-gradient(0deg,
-      transparent,
-      var(--backgroundColor) 70%);
-  pointer-events: none;
-  z-index: 12;
-  opacity: 0;
-  left: 0;
-}
-
-@keyframes loadingCircle {
-  0% {
-    transform: translate(-95%, -75%) rotateZ(0deg);
+  .landing-section {
+    width: 100%;
+    max-width: var(--cMaxWidth);
+    margin: auto;
+    position: relative;
+    height: var(--vh);
   }
 
-  100% {
-    transform: translate(-95%, -75%) rotateZ(360deg);
-  }
-}
-
-.landing-circle2 {
-  top: 50%;
-  right: 0%;
-  transform: translate(calc(100% - 2px), -50%);
-  z-index: 9;
-  position: fixed;
-  display: none;
-  width: 300px;
-  height: 300px;
-  background-color: #22d3ee;
-  box-shadow: inset -50px 40px 50px rgba(0, 180, 180, 0.6);
-  filter: blur(50px);
-  border-radius: 50%;
-  animation: loadingCircle2 5s linear infinite;
-}
-
-@keyframes loadingCircle2 {
-  100% {
-    transform: translate(calc(100% - 2px), -50%) rotate(360deg);
-  }
-}
-
-.landing-video,
-.landing-image {
-  position: absolute;
-  bottom: 0;
-  height: 95%;
-  left: 50%;
-  transform: translateX(-50%);
-}
-
-.landing-image img {
-  height: 100%;
-  z-index: 2;
-  position: relative;
-}
-
-.character-rim {
-  position: absolute;
-  width: 400px;
-  height: 400px;
-  z-index: 1;
-  background-color: #22d3ee;
-  transform: translate(-50%, 36%) scaleX(1.4);
-  box-shadow: inset 66px 35px 85px 0px rgba(0, 180, 180, 0.65);
-  filter: blur(50px);
-  border-radius: 50%;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, 100%) scale(1.4);
-  opacity: 0;
-}
-
-.character-model {
-  height: 80%;
-  height: 80vh;
-  position: absolute;
-  max-width: 1920px;
-  max-height: 1080px;
-  transform: translateX(-50%);
-  width: 100%;
-  left: 50%;
-  z-index: 0;
-  bottom: 50px;
-  pointer-events: inherit;
-}
-
-.character-model::after {
-  content: "";
-  width: 100vw;
-  height: 250px;
-  background-image: linear-gradient(to bottom,
-      transparent,
-      var(--backgroundColor) 70%);
-  bottom: -50px;
-  left: 50%;
-  transform: translateX(-50%);
-  z-index: 9;
-  position: absolute;
-}
-
-.character-model::before {
-  content: "";
-  width: 100vw;
-  height: 700px;
-  background-color: var(--backgroundColor);
-  top: 100%;
-  left: 50%;
-  transform: translateX(-50%);
-  z-index: 9;
-  position: absolute;
-}
-
-.character-loaded .character-rim {
-  animation: backlight 3s forwards;
-  animation-delay: 0.3s;
-  opacity: 0;
-}
-
-.character-model canvas {
-  position: relative;
-  pointer-events: none;
-  z-index: 2;
-}
-
-.character-hover {
-  position: absolute;
-  width: 280px;
-  height: 280px;
-  top: 50%;
-  left: 50%;
-  z-index: 3;
-  transform: translate(-50%, -50%);
-  border-radius: 50%;
-}
-
-.landing-intro {
-  position: absolute;
-  z-index: 9;
-  top: 12%;
-  left: 0;
-}
-
-.landing-intro h2 {
-  margin: 0;
-  color: var(--accentColor);
-  font-size: 22px;
-  font-weight: 300;
-  letter-spacing: 2px;
-}
-
-.landing-intro h1 {
-  margin: 0;
-  letter-spacing: 2px;
-  font-size: 28px;
-  line-height: 28px;
-  font-weight: 500;
-  font-family: "Geist", sans-serif;
-}
-
-/* .landing-intro h1 span {
-   font-weight: 200; 
-} */
-
-.landing-info {
-  position: absolute;
-  right: 50%;
-  transform: translateX(50%);
-  bottom: 40px;
-  top: inherit;
-  z-index: 9;
-}
-
-.landing-info h3 {
-  font-size: 22px;
-  letter-spacing: 2px;
-  font-weight: 300;
-  color: var(--accentColor);
-  margin: 0;
-}
-
-.landing-info h2 {
-  margin: 0;
-  margin-top: -20px;
-  margin-left: 20px;
-  font-family: "Geist", sans-serif;
-  font-weight: 600;
-  font-size: 32px;
-  line-height: 40px;
-  position: relative;
-  display: flex;
-  flex-wrap: nowrap;
-  text-transform: uppercase;
-  letter-spacing: 2px;
-}
-
-.landing-h2-info-1 {
-  position: absolute;
-  top: 0;
-}
-
-h2.landing-info-h2 {
-  color: #14b8a6;
-  font-size: 42px;
-  width: 120%;
-  margin: 0;
-  font-family: "Geist", sans-serif;
-  font-weight: 600;
-  position: relative;
-  margin-left: -5px;
-}
-
-.landing-h2-2 {
-  position: absolute;
-  top: 0;
-}
-
-.landing-info-h2::after {
-  content: "";
-  position: absolute;
-  width: 100%;
-  height: 120%;
-  z-index: 3;
-  background-image: linear-gradient(0deg,
-      var(--backgroundColor) 40%,
-      rgba(0, 0, 0, 0) 110%);
-  top: 0;
-  left: 0;
-}
-
-@media screen and (min-width: 500px) {
-  .landing-circle2 {
-    display: block;
+  .landing-container {
+    width: var(--cWidth);
+    margin: auto;
+    height: 100%;
+    position: relative;
+    max-width: var(--cMaxWidth);
   }
 
-  .character-model {
-    z-index: 0;
-  }
-
-  .landing-info h3 {
-    font-size: 18px;
-  }
-
-  .landing-intro h2 {
-    font-size: 18px;
-  }
-
-  .landing-intro h1 {
-    font-size: 30px;
-    line-height: 30px;
-  }
-
-  .landing-info h2 {
-    font-size: 35px;
-    line-height: 40px;
-  }
-
-  h2.landing-info-h2 {
-    font-size: 38px;
-  }
-}
-
-@media screen and (min-width: 768px) {
-  .character-model {
-    height: 80vh;
-  }
-
-  .landing-intro h2 {
-    font-size: 25px;
-  }
-
-  .landing-intro h1 {
-    font-size: 40px;
-    line-height: 35px;
-  }
-
-  .landing-info h3 {
-    font-size: 25px;
-  }
-
-  .landing-info h2 {
-    font-size: 45px;
-    line-height: 42px;
-  }
-
-  h2.landing-info-h2 {
-    font-size: 55px;
-  }
-}
-
-@media screen and (min-width: 1025px) {
-  .character-model {
-    height: 100vh;
-    bottom: 0;
-    z-index: 11;
+  .landing-circle1 {
+    top: 0%;
+    left: 0%;
+    z-index: 15;
     position: fixed;
+    width: 300px;
+    height: 300px;
+    background-color: #22d3ee;
+    box-shadow: inset -50px 40px 50px rgba(0, 180, 180, 0.6);
+    filter: blur(60px);
+    border-radius: 50%;
+    animation: loadingCircle 5s linear infinite;
   }
 
-  .character-model::after,
-  .character-model::before {
+  .nav-fade {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    height: 130px;
+    background-image: linear-gradient(0deg,
+        transparent,
+        var(--backgroundColor) 70%);
+    pointer-events: none;
+    z-index: 12;
+    opacity: 0;
+    left: 0;
+  }
+
+  @keyframes loadingCircle {
+    0% {
+      transform: translate(-95%, -75%) rotateZ(0deg);
+    }
+
+    100% {
+      transform: translate(-95%, -75%) rotateZ(360deg);
+    }
+  }
+
+  .landing-circle2 {
+    top: 50%;
+    right: 0%;
+    transform: translate(calc(100% - 2px), -50%);
+    z-index: 9;
+    position: fixed;
     display: none;
+    width: 300px;
+    height: 300px;
+    background-color: #22d3ee;
+    box-shadow: inset -50px 40px 50px rgba(0, 180, 180, 0.6);
+    filter: blur(50px);
+    border-radius: 50%;
+    animation: loadingCircle2 5s linear infinite;
+  }
+
+  @keyframes loadingCircle2 {
+    100% {
+      transform: translate(calc(100% - 2px), -50%) rotate(360deg);
+    }
+  }
+
+  .landing-video,
+  .landing-image {
+    position: absolute;
+    bottom: 0;
+    height: 95%;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
+  .landing-image img {
+    height: 100%;
+    z-index: 2;
+    position: relative;
+  }
+
+  .character-rim {
+    position: absolute;
+    width: 400px;
+    height: 400px;
+    z-index: 1;
+    background-color: #22d3ee;
+    transform: translate(-50%, 36%) scaleX(1.4);
+    box-shadow: inset 66px 35px 85px 0px rgba(0, 180, 180, 0.65);
+    filter: blur(50px);
+    border-radius: 50%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, 100%) scale(1.4);
+    opacity: 0;
+  }
+
+  .character-model {
+    height: 80%;
+    height: 80vh;
+    position: absolute;
+    max-width: 1920px;
+    max-height: 1080px;
+    transform: translateX(-50%);
+    width: 100%;
+    left: 50%;
+    z-index: 0;
+    bottom: 50px;
+    pointer-events: inherit;
+  }
+
+  .character-model::after {
+    content: "";
+    width: 100vw;
+    height: 250px;
+    background-image: linear-gradient(to bottom,
+        transparent,
+        var(--backgroundColor) 70%);
+    bottom: -50px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 9;
+    position: absolute;
+  }
+
+  .character-model::before {
+    content: "";
+    width: 100vw;
+    height: 700px;
+    background-color: var(--backgroundColor);
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 9;
+    position: absolute;
+  }
+
+  .character-loaded .character-rim {
+    animation: backlight 3s forwards;
+    animation-delay: 0.3s;
+    opacity: 0;
+  }
+
+  .character-model canvas {
+    position: relative;
+    pointer-events: none;
+    z-index: 2;
+  }
+
+  .character-hover {
+    position: absolute;
+    width: 280px;
+    height: 280px;
+    top: 50%;
+    left: 50%;
+    z-index: 3;
+    transform: translate(-50%, -50%);
+    border-radius: 50%;
   }
 
   .landing-intro {
-    top: 50%;
-    left: auto;
-    right: 66%;
-    transform: translate(0%, -50%);
+    position: absolute;
+    z-index: 9;
+    top: 12%;
+    left: 0;
   }
 
-  .landing-info {
-    bottom: auto;
-    top: 51%;
-    z-index: inherit;
-    text-align: left;
-    transform: translate(0%, -50%);
-    right: auto;
-    left: 66%;
-  }
-}
-
-@media screen and (min-width: 1200px) {
-  .landing-intro {
-    top: 50%;
-    left: auto;
-    right: 70%;
-    transform: translate(0%, -50%);
-  }
-
-  .landing-info {
-    bottom: auto;
-    top: 51%;
-    z-index: inherit;
-    text-align: left;
-    transform: translate(0%, -50%);
-    right: auto;
-    left: 70%;
-  }
-}
-
-@media screen and (min-width: 1600px) {
   .landing-intro h2 {
-    font-size: 35px;
+    margin: 0;
+    color: var(--accentColor);
+    font-size: 22px;
+    font-weight: 300;
+    letter-spacing: 2px;
   }
 
   .landing-intro h1 {
-    font-size: 60px;
-    line-height: 55px;
+    margin: 0;
+    letter-spacing: 2px;
+    font-size: 28px;
+    line-height: 28px;
+    font-weight: 500;
+    font-family: "Geist", sans-serif;
+  }
+
+  /* .landing-intro h1 span {
+    font-weight: 200; 
+  } */
+
+  .landing-info {
+    position: absolute;
+    right: 50%;
+    transform: translateX(50%);
+    bottom: 40px;
+    top: inherit;
+    z-index: 9;
   }
 
   .landing-info h3 {
-    font-size: 35px;
+    font-size: 22px;
+    letter-spacing: 2px;
+    font-weight: 300;
+    color: var(--accentColor);
+    margin: 0;
   }
 
   .landing-info h2 {
-    font-size: 65px;
-    line-height: 62px;
+    margin: 0;
+    margin-top: -20px;
+    margin-left: 20px;
+    font-family: "Geist", sans-serif;
+    font-weight: 600;
+    font-size: 32px;
+    line-height: 40px;
+    position: relative;
+    display: flex;
+    flex-wrap: nowrap;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+  }
+
+  .landing-h2-info-1 {
+    position: absolute;
+    top: 0;
   }
 
   h2.landing-info-h2 {
-    font-size: 75px;
-  }
-}
-/* =========================================================
-   CHIRAYU PORTFOLIO — HERO UPGRADE
-   ========================================================= */
-
-.landing-eyebrow {
-  display: block;
-  margin-bottom: 1.25rem;
-  font-size: 0.72rem;
-  font-weight: 600;
-  letter-spacing: 0.22em;
-  text-transform: uppercase;
-  opacity: 0.55;
-}
-
-.landing-role {
-  margin-top: 1.5rem;
-  font-size: clamp(1.1rem, 1.5vw, 1.55rem);
-  font-weight: 600;
-  line-height: 1.15;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-}
-
-.landing-role span {
-  opacity: 0.45;
-}
-
-.landing-description {
-  max-width: 34rem;
-  margin: 0 0 2rem;
-  font-size: clamp(1rem, 1.25vw, 1.25rem);
-  line-height: 1.65;
-  letter-spacing: 0.01em;
-  opacity: 0.72;
-}
-
-.landing-capabilities {
-  margin-bottom: 2.5rem;
-}
-
-.landing-actions {
-  display: flex;
-  align-items: center;
-  gap: 0.75rem;
-  flex-wrap: wrap;
-  margin-bottom: 2.25rem;
-}
-
-.landing-cta {
-  display: inline-flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 1.5rem;
-  min-width: 10.5rem;
-  padding: 0.9rem 1.15rem;
-  border: 1px solid rgba(255, 255, 255, 0.18);
-  font-size: 0.7rem;
-  font-weight: 600;
-  letter-spacing: 0.14em;
-  text-decoration: none;
-  text-transform: uppercase;
-  transition:
-    transform 220ms ease,
-    border-color 220ms ease,
-    background-color 220ms ease,
-    opacity 220ms ease;
-}
-
-.landing-cta:hover {
-  transform: translateY(-3px);
-  border-color: rgba(255, 255, 255, 0.5);
-}
-
-.landing-cta-primary {
-  background: rgba(255, 255, 255, 0.95);
-  color: #0a0a0a;
-}
-
-.landing-cta-primary:hover {
-  background: #ffffff;
-}
-
-.landing-cta-secondary {
-  background: transparent;
-  color: inherit;
-}
-
-.landing-cta-secondary:hover {
-  background: rgba(255, 255, 255, 0.06);
-}
-
-.landing-tagline {
-  margin: 0;
-  font-size: 0.68rem;
-  font-weight: 600;
-  line-height: 1.65;
-  letter-spacing: 0.17em;
-  text-transform: uppercase;
-  opacity: 0.4;
-}
-
-.landing-scroll-indicator {
-  position: absolute;
-  right: 2.5rem;
-  bottom: 2rem;
-  z-index: 5;
-  display: flex;
-  align-items: center;
-  gap: 0.7rem;
-  font-size: 0.58rem;
-  font-weight: 600;
-  letter-spacing: 0.16em;
-  text-transform: uppercase;
-  opacity: 0.4;
-  writing-mode: horizontal-tb;
-}
-
-.landing-scroll-line {
-  display: block;
-  width: 3.5rem;
-  height: 1px;
-  background: currentColor;
-  opacity: 0.5;
-}
-
-@media (max-width: 900px) {
-  .landing-description {
-    max-width: 30rem;
+    color: #14b8a6;
+    font-size: 42px;
+    width: 120%;
+    margin: 0;
+    font-family: "Geist", sans-serif;
+    font-weight: 600;
+    position: relative;
+    margin-left: -5px;
   }
 
-  .landing-scroll-indicator {
-    right: 1.5rem;
-    bottom: 1.5rem;
+  .landing-h2-2 {
+    position: absolute;
+    top: 0;
   }
-}
 
-@media (max-width: 600px) {
+  .landing-info-h2::after {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 120%;
+    z-index: 3;
+    background-image: linear-gradient(0deg,
+        var(--backgroundColor) 40%,
+        rgba(0, 0, 0, 0) 110%);
+    top: 0;
+    left: 0;
+  }
+
+  @media screen and (min-width: 500px) {
+    .landing-circle2 {
+      display: block;
+    }
+
+    .character-model {
+      z-index: 0;
+    }
+
+    .landing-info h3 {
+      font-size: 18px;
+    }
+
+    .landing-intro h2 {
+      font-size: 18px;
+    }
+
+    .landing-intro h1 {
+      font-size: 30px;
+      line-height: 30px;
+    }
+
+    .landing-info h2 {
+      font-size: 35px;
+      line-height: 40px;
+    }
+
+    h2.landing-info-h2 {
+      font-size: 38px;
+    }
+  }
+
+  @media screen and (min-width: 768px) {
+    .character-model {
+      height: 80vh;
+    }
+
+    .landing-intro h2 {
+      font-size: 25px;
+    }
+
+    .landing-intro h1 {
+      font-size: 40px;
+      line-height: 35px;
+    }
+
+    .landing-info h3 {
+      font-size: 25px;
+    }
+
+    .landing-info h2 {
+      font-size: 45px;
+      line-height: 42px;
+    }
+
+    h2.landing-info-h2 {
+      font-size: 55px;
+    }
+  }
+
+  @media screen and (min-width: 1025px) {
+    .character-model {
+      height: 100vh;
+      bottom: 0;
+      z-index: 11;
+      position: fixed;
+    }
+
+    .character-model::after,
+    .character-model::before {
+      display: none;
+    }
+
+    .landing-intro {
+      top: 50%;
+      left: auto;
+      right: 66%;
+      transform: translate(0%, -50%);
+    }
+
+    .landing-info {
+      bottom: auto;
+      top: 51%;
+      z-index: inherit;
+      text-align: left;
+      transform: translate(0%, -50%);
+      right: auto;
+      left: 66%;
+    }
+  }
+
+  @media screen and (min-width: 1200px) {
+    .landing-intro {
+      top: 50%;
+      left: auto;
+      right: 70%;
+      transform: translate(0%, -50%);
+    }
+
+    .landing-info {
+      bottom: auto;
+      top: 51%;
+      z-index: inherit;
+      text-align: left;
+      transform: translate(0%, -50%);
+      right: auto;
+      left: 70%;
+    }
+  }
+
+  @media screen and (min-width: 1600px) {
+    .landing-intro h2 {
+      font-size: 35px;
+    }
+
+    .landing-intro h1 {
+      font-size: 60px;
+      line-height: 55px;
+    }
+
+    .landing-info h3 {
+      font-size: 35px;
+    }
+
+    .landing-info h2 {
+      font-size: 65px;
+      line-height: 62px;
+    }
+
+    h2.landing-info-h2 {
+      font-size: 75px;
+    }
+  }
+  /* =========================================================
+    CHIRAYU PORTFOLIO — HERO UPGRADE
+    ========================================================= */
+
   .landing-eyebrow {
-    margin-bottom: 0.9rem;
-    font-size: 0.62rem;
-    letter-spacing: 0.16em;
+    display: block;
+    margin-bottom: 1.25rem;
+    font-size: 0.72rem;
+    font-weight: 600;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    opacity: 0.55;
   }
 
   .landing-role {
-    margin-top: 1rem;
-    font-size: 0.95rem;
-    letter-spacing: 0.1em;
+    margin-top: 1.5rem;
+    font-size: clamp(1.1rem, 1.5vw, 1.55rem);
+    font-weight: 600;
+    line-height: 1.15;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+  }
+
+  .landing-role span {
+    opacity: 0.45;
   }
 
   .landing-description {
-    margin-bottom: 1.5rem;
-    font-size: 0.95rem;
-    line-height: 1.55;
+    max-width: 34rem;
+    margin: 0 0 2rem;
+    font-size: clamp(1rem, 1.25vw, 1.25rem);
+    line-height: 1.65;
+    letter-spacing: 0.01em;
+    opacity: 0.72;
   }
 
   .landing-capabilities {
-    margin-bottom: 1.75rem;
+    margin-bottom: 2.5rem;
   }
 
   .landing-actions {
-    gap: 0.55rem;
-    margin-bottom: 1.5rem;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    flex-wrap: wrap;
+    margin-bottom: 2.25rem;
   }
 
   .landing-cta {
-    min-width: 9.5rem;
-    padding: 0.8rem 0.95rem;
-    font-size: 0.62rem;
+    display: inline-flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1.5rem;
+    min-width: 10.5rem;
+    padding: 0.9rem 1.15rem;
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    font-size: 0.7rem;
+    font-weight: 600;
+    letter-spacing: 0.14em;
+    text-decoration: none;
+    text-transform: uppercase;
+    transition:
+      transform 220ms ease,
+      border-color 220ms ease,
+      background-color 220ms ease,
+      opacity 220ms ease;
+  }
+
+  .landing-cta:hover {
+    transform: translateY(-3px);
+    border-color: rgba(255, 255, 255, 0.5);
+  }
+
+  .landing-cta-primary {
+    background: rgba(255, 255, 255, 0.95);
+    color: #0a0a0a;
+  }
+
+  .landing-cta-primary:hover {
+    background: #ffffff;
+  }
+
+  .landing-cta-secondary {
+    background: transparent;
+    color: inherit;
+  }
+
+  .landing-cta-secondary:hover {
+    background: rgba(255, 255, 255, 0.06);
   }
 
   .landing-tagline {
-    font-size: 0.55rem;
-    letter-spacing: 0.12em;
+    margin: 0;
+    font-size: 0.68rem;
+    font-weight: 600;
+    line-height: 1.65;
+    letter-spacing: 0.17em;
+    text-transform: uppercase;
+    opacity: 0.4;
   }
 
   .landing-scroll-indicator {
-    right: 1rem;
-    bottom: 1rem;
-    font-size: 0.5rem;
+    position: absolute;
+    right: 2.5rem;
+    bottom: 2rem;
+    z-index: 5;
+    display: flex;
+    align-items: center;
+    gap: 0.7rem;
+    font-size: 0.58rem;
+    font-weight: 600;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    opacity: 0.4;
+    writing-mode: horizontal-tb;
   }
 
   .landing-scroll-line {
-    width: 2rem;
+    display: block;
+    width: 3.5rem;
+    height: 1px;
+    background: currentColor;
+    opacity: 0.5;
   }
-}
+
+  @media (max-width: 900px) {
+    .landing-description {
+      max-width: 30rem;
+    }
+
+    .landing-scroll-indicator {
+      right: 1.5rem;
+      bottom: 1.5rem;
+    }
+  }
+
+  @media (max-width: 600px) {
+    .landing-eyebrow {
+      margin-bottom: 0.9rem;
+      font-size: 0.62rem;
+      letter-spacing: 0.16em;
+    }
+
+    .landing-role {
+      margin-top: 1rem;
+      font-size: 0.95rem;
+      letter-spacing: 0.1em;
+    }
+
+    .landing-description {
+      margin-bottom: 1.5rem;
+      font-size: 0.95rem;
+      line-height: 1.55;
+    }
+
+    .landing-capabilities {
+      margin-bottom: 1.75rem;
+    }
+
+    .landing-actions {
+      gap: 0.55rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .landing-cta {
+      min-width: 9.5rem;
+      padding: 0.8rem 0.95rem;
+      font-size: 0.62rem;
+    }
+
+    .landing-tagline {
+      font-size: 0.55rem;
+      letter-spacing: 0.12em;
+    }
+
+    .landing-scroll-indicator {
+      right: 1rem;
+      bottom: 1rem;
+      font-size: 0.5rem;
+    }
+
+    .landing-scroll-line {
+      width: 2rem;
+    }
+  }

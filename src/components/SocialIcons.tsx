@@ -11,6 +11,10 @@ import HoverLinks from "./HoverLinks";
 const SocialIcons = () => {
   useEffect(() => {
     const social = document.getElementById("social") as HTMLElement;
+    if (!social) return;
+
+    const frameIds: number[] = [];
+    const cleanups: Array<() => void> = [];
 
     social.querySelectorAll("span").forEach((item) => {
       const elem = item as HTMLElement;
@@ -21,15 +25,17 @@ const SocialIcons = () => {
       let mouseY = rect.height / 2;
       let currentX = 0;
       let currentY = 0;
+      let cancelled = false;
 
       const updatePosition = () => {
+        if (cancelled) return;
         currentX += (mouseX - currentX) * 0.1;
         currentY += (mouseY - currentY) * 0.1;
 
         link.style.setProperty("--siLeft", `${currentX}px`);
         link.style.setProperty("--siTop", `${currentY}px`);
 
-        requestAnimationFrame(updatePosition);
+        frameIds.push(requestAnimationFrame(updatePosition));
       };
 
       const onMouseMove = (e: MouseEvent) => {
@@ -47,12 +53,20 @@ const SocialIcons = () => {
 
       document.addEventListener("mousemove", onMouseMove);
 
-      updatePosition();
+      frameIds.push(requestAnimationFrame(updatePosition));
 
-      return () => {
-        elem.removeEventListener("mousemove", onMouseMove);
-      };
+      cleanups.push(() => {
+        cancelled = true;
+        document.removeEventListener("mousemove", onMouseMove);
+      });
     });
+
+    return () => {
+      cleanups.forEach((cleanup) => cleanup());
+      for (let i = frameIds.length - 1; i >= 0; i--) {
+        cancelAnimationFrame(frameIds[i]);
+      }
+    };
   }, []);
 
   return (

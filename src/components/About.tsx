@@ -6,14 +6,15 @@ const About = () => {
       <div className="about-me">
         <h3 className="title">About Me</h3>
         <p className="para">
-          I am a Computer Engineering student with a strong interest in building real-world systems. 
-          I work across full stack development, artificial intelligence, and IoT-based hardware projects. 
-          From developing smart applications to working with sensor-based systems, I focus on creating 
-          solutions that go beyond just software.
+          I am Chirayu Babu Jaysawal, a Computer Engineering student who builds real software products,
+          not just academic demos. My work spans full-stack development and AI-integrated applications,
+          with a focus on shipping practical, working systems rather than stopping at a prototype.
 
-          I enjoy understanding how systems work end-to-end — from backend logic to physical hardware — 
-          and turning ideas into functional products. I continuously explore new technologies and aim to 
-          build impactful solutions by combining software, AI, and hardware.
+          I care about how things fit together end to end — from architecture, backend, and database,
+          through the frontend and product experience, and where it makes sense, into intelligent or
+          hardware-connected systems. My interest in systems, hardware, and IoT gives me that full
+          engineering perspective. I am always learning and experimenting with modern technologies,
+          turning ideas into functional products that solve real problems.
         </p>
       </div>
     </div>
