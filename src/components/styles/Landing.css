@@ -328,6 +328,13 @@
       bottom: 0;
       z-index: 11;
       position: fixed;
+      /*
+       * This fixed full-viewport div sits above the hero CTAs and, as a
+       * plain div, intercepted every click in the hero. The character's
+       * mouse-follow is document-level, so it does not need pointer
+       * events here; the canvas already sets pointer-events: none.
+       */
+      pointer-events: none;
     }
 
     .character-model::after,
