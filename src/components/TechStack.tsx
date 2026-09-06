@@ -1,5 +1,12 @@
 import * as THREE from "three";
-import { useRef, useMemo, useState, useEffect } from "react";
+import {
+  Component,
+  ReactNode,
+  useEffect,
+  useMemo,
+  useRef,
+  useState,
+} from "react";
 import { Canvas, useFrame } from "@react-three/fiber";
 import { Environment } from "@react-three/drei";
 import { EffectComposer, N8AO } from "@react-three/postprocessing";
@@ -10,8 +17,60 @@ import {
   CylinderCollider,
   RapierRigidBody,
 } from "@react-three/rapier";
+import { isWebGLAvailable } from "../utils/webgl";
+
+/* -------------------------------------------------------------------------- */
+/* Error boundary                                                             */
+/*                                                                            */
+/* Even if WebGL becomes unavailable after detection, the portfolio should   */
+/* never turn into a completely blank page.                                  */
+/* -------------------------------------------------------------------------- */
+
+type WebGLErrorBoundaryProps = {
+  children: ReactNode;
+  fallback: ReactNode;
+};
+
+type WebGLErrorBoundaryState = {
+  hasError: boolean;
+};
+
+class WebGLErrorBoundary extends Component<
+  WebGLErrorBoundaryProps,
+  WebGLErrorBoundaryState
+> {
+  state: WebGLErrorBoundaryState = {
+    hasError: false,
+  };
+
+  static getDerivedStateFromError(): WebGLErrorBoundaryState {
+    return {
+      hasError: true,
+    };
+  }
+
+  componentDidCatch(error: Error) {
+    console.warn(
+      "Three.js/WebGL failed to initialize. Using static fallback.",
+      error
+    );
+  }
+
+  render() {
+    if (this.state.hasError) {
+      return this.props.fallback;
+    }
+
+    return this.props.children;
+  }
+}
+
+/* -------------------------------------------------------------------------- */
+/* Assets                                                                     */
+/* -------------------------------------------------------------------------- */
 
 const textureLoader = new THREE.TextureLoader();
+
 const imageUrls = [
   "/images/react2.webp",
   "/images/next2.webp",
@@ -22,6 +81,7 @@ const imageUrls = [
   "/images/typescript.webp",
   "/images/javascript.webp",
 ];
+
 const textures = imageUrls.map((url) => textureLoader.load(url));
 
 const sphereGeometry = new THREE.SphereGeometry(1, 28, 28);
@@ -29,6 +89,10 @@ const sphereGeometry = new THREE.SphereGeometry(1, 28, 28);
 const spheres = [...Array(30)].map(() => ({
   scale: [0.7, 1, 0.8, 1, 1][Math.floor(Math.random() * 5)],
 }));
+
+/* -------------------------------------------------------------------------- */
+/* 3D sphere                                                                  */
+/* -------------------------------------------------------------------------- */
 
 type SphereProps = {
   vec?: THREE.Vector3;
@@ -48,10 +112,12 @@ function SphereGeo({
   const api = useRef<RapierRigidBody | null>(null);
 
   useFrame((_state, delta) => {
-    if (!isActive) return;
+    if (!isActive || !api.current) return;
+
     delta = Math.min(0.1, delta);
+
     const impulse = vec
-      .copy(api.current!.translation())
+      .copy(api.current.translation())
       .normalize()
       .multiply(
         new THREE.Vector3(
@@ -61,7 +127,7 @@ function SphereGeo({
         )
       );
 
-    api.current?.applyImpulse(impulse, true);
+    api.current.applyImpulse(impulse, true);
   });
 
   return (
@@ -74,11 +140,13 @@ function SphereGeo({
       colliders={false}
     >
       <BallCollider args={[scale]} />
+
       <CylinderCollider
         rotation={[Math.PI / 2, 0, 0]}
         position={[0, 0, 1.2 * scale]}
         args={[0.15 * scale, 0.275 * scale]}
       />
+
       <mesh
         castShadow
         receiveShadow
@@ -91,16 +159,24 @@ function SphereGeo({
   );
 }
 
+/* -------------------------------------------------------------------------- */
+/* Physics pointer                                                             */
+/* -------------------------------------------------------------------------- */
+
 type PointerProps = {
   vec?: THREE.Vector3;
   isActive: boolean;
 };
 
-function Pointer({ vec = new THREE.Vector3(), isActive }: PointerProps) {
+function Pointer({
+  vec = new THREE.Vector3(),
+  isActive,
+}: PointerProps) {
   const ref = useRef<RapierRigidBody>(null);
 
   useFrame(({ pointer, viewport }) => {
     if (!isActive) return;
+
     const targetVec = vec.lerp(
       new THREE.Vector3(
         (pointer.x * viewport.width) / 2,
@@ -109,6 +185,7 @@ function Pointer({ vec = new THREE.Vector3(), isActive }: PointerProps) {
       ),
       0.2
     );
+
     ref.current?.setNextKinematicTranslation(targetVec);
   });
 
@@ -124,33 +201,181 @@ function Pointer({ vec = new THREE.Vector3(), isActive }: PointerProps) {
   );
 }
 
+/* -------------------------------------------------------------------------- */
+/* Static fallback                                                            */
+/* -------------------------------------------------------------------------- */
+
+const fallbackTechnologies = [
+  "React",
+  "Next.js",
+  "TypeScript",
+  "JavaScript",
+  "Node.js",
+  "Express",
+  "MongoDB",
+  "MySQL",
+];
+
+const TechStackFallback = () => {
+  return (
+    <div className="techstack techstack-fallback">
+      <div className="techstack-fallback-header">
+        <span className="techstack-label">TECHNOLOGY</span>
+
+        <h2>
+          TOOLS I
+          <br />
+          <span>BUILD WITH.</span>
+        </h2>
+
+        <p>
+          A practical stack spanning frontend, backend, databases,
+          and modern application development.
+        </p>
+      </div>
+
+      <div className="techstack-grid">
+        {fallbackTechnologies.map((technology, index) => (
+          <div
+            className="techstack-card"
+            key={technology}
+          >
+            <span className="techstack-card-number">
+              {String(index + 1).padStart(2, "0")}
+            </span>
+
+            <span className="techstack-card-name">
+              {technology}
+            </span>
+
+            <span
+              className="techstack-card-arrow"
+              aria-hidden="true"
+            >
+              ↗
+            </span>
+          </div>
+        ))}
+      </div>
+    </div>
+  );
+};
+
+/* -------------------------------------------------------------------------- */
+/* Main component                                                             */
+/* -------------------------------------------------------------------------- */
+
 const TechStack = () => {
   const [isActive, setIsActive] = useState(false);
+  const [webGLAvailable, setWebGLAvailable] = useState(false);
+  const [inView, setInView] = useState(false);
+  const sectionRef = useRef<HTMLDivElement>(null);
+
+  /* Check WebGL only after the browser has mounted. */
+  useEffect(() => {
+    setWebGLAvailable(isWebGLAvailable());
+  }, []);
+
+  /*
+   * Mount the heavy WebGL canvas only once the section approaches the
+   * viewport. This prevents the Character renderer and the physics canvas
+   * from holding two live WebGL contexts simultaneously during page load,
+   * which can exhaust the browser's limited GPU context pool in normal
+   * Chrome/Edge when acceleration is restricted.
+   */
+  useEffect(() => {
+    const node = sectionRef.current;
+
+    if (!node) {
+      return;
+    }
+
+    if (typeof IntersectionObserver === "undefined") {
+      /* Older browsers: mount immediately. */
+      setInView(true);
+      return;
+    }
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        if (entries.some((entry) => entry.isIntersecting)) {
+          setInView(true);
+          observer.disconnect();
+        }
+      },
+      { rootMargin: "400px 0px", threshold: 0 }
+    );
+
+    observer.observe(node);
+
+    return () => {
+      observer.disconnect();
+    };
+  }, []);
+
+  /* ------------------------------------------------------------------------ */
+  /* Scroll activation                                                        */
+  /* ------------------------------------------------------------------------ */
 
   useEffect(() => {
     const handleScroll = () => {
-      const scrollY = window.scrollY || document.documentElement.scrollTop;
-      const threshold = document
-        .getElementById("work")!
-        .getBoundingClientRect().top;
-      setIsActive(scrollY > threshold);
+      const workSection = document.getElementById("work");
+
+      if (!workSection) {
+        setIsActive(false);
+        return;
+      }
+
+      const threshold =
+        workSection.getBoundingClientRect().top + window.scrollY;
+
+      setIsActive(window.scrollY > threshold - window.innerHeight * 0.75);
     };
-    document.querySelectorAll(".header a").forEach((elem) => {
-      const element = elem as HTMLAnchorElement;
-      element.addEventListener("click", () => {
-        const interval = setInterval(() => {
-          handleScroll();
-        }, 10);
-        setTimeout(() => {
-          clearInterval(interval);
-        }, 1000);
-      });
+
+    handleScroll();
+
+    window.addEventListener("scroll", handleScroll, {
+      passive: true,
     });
-    window.addEventListener("scroll", handleScroll);
+
+    const headerLinks = Array.from(
+      document.querySelectorAll(".header a")
+    );
+
+    const cleanupTimers: number[] = [];
+
+    const handleHeaderClick = () => {
+      const interval = window.setInterval(handleScroll, 10);
+
+      const timeout = window.setTimeout(() => {
+        window.clearInterval(interval);
+      }, 1000);
+
+      cleanupTimers.push(interval, timeout);
+    };
+
+    headerLinks.forEach((element) => {
+      element.addEventListener("click", handleHeaderClick);
+    });
+
     return () => {
       window.removeEventListener("scroll", handleScroll);
+
+      headerLinks.forEach((element) => {
+        element.removeEventListener("click", handleHeaderClick);
+      });
+
+      cleanupTimers.forEach((timer) => {
+        window.clearInterval(timer);
+        window.clearTimeout(timer);
+      });
     };
   }, []);
+
+  /* ------------------------------------------------------------------------ */
+  /* Materials                                                                */
+  /* ------------------------------------------------------------------------ */
+
   const materials = useMemo(() => {
     return textures.map(
       (texture) =>
@@ -166,48 +391,93 @@ const TechStack = () => {
     );
   }, []);
 
-  return (
-    <div className="techstack">
-      <h2> My Techstack</h2>
+  /* ------------------------------------------------------------------------ */
+  /* Fallback while checking WebGL                                            */
+  /* ------------------------------------------------------------------------ */
 
-      <Canvas
-        shadows
-        gl={{ alpha: true, stencil: false, depth: false, antialias: false }}
-        camera={{ position: [0, 0, 20], fov: 32.5, near: 1, far: 100 }}
-        onCreated={(state) => (state.gl.toneMappingExposure = 1.5)}
-        className="tech-canvas"
-      >
-        <ambientLight intensity={1} />
-        <spotLight
-          position={[20, 20, 25]}
-          penumbra={1}
-          angle={0.2}
-          color="white"
-          castShadow
-          shadow-mapSize={[512, 512]}
-        />
-        <directionalLight position={[0, 5, -4]} intensity={2} />
-        <Physics gravity={[0, 0, 0]}>
-          <Pointer isActive={isActive} />
-          {spheres.map((props, i) => (
-            <SphereGeo
-              key={i}
-              {...props}
-              material={materials[Math.floor(Math.random() * materials.length)]}
-              isActive={isActive}
+  if (!webGLAvailable) {
+    return <TechStackFallback />;
+  }
+
+  /* ------------------------------------------------------------------------ */
+  /* WebGL version                                                            */
+  /* ------------------------------------------------------------------------ */
+
+  return (
+    <WebGLErrorBoundary fallback={<TechStackFallback />}>
+      <div className="techstack" ref={sectionRef}>
+        <h2>MY TECHSTACK</h2>
+
+        {inView && (
+        <Canvas
+          shadows
+          gl={{
+            alpha: true,
+            stencil: false,
+            depth: true,
+            antialias: false,
+          }}
+          dpr={[1, 1.5]}
+          camera={{
+            position: [0, 0, 20],
+            fov: 32.5,
+            near: 1,
+            far: 100,
+          }}
+          onCreated={(state) => {
+            state.gl.toneMappingExposure = 1.5;
+          }}
+          className="tech-canvas"
+          fallback={<TechStackFallback />}
+        >
+          <ambientLight intensity={1} />
+
+          <spotLight
+            position={[20, 20, 25]}
+            penumbra={1}
+            angle={0.2}
+            color="white"
+            castShadow
+            shadow-mapSize={[512, 512]}
+          />
+
+          <directionalLight
+            position={[0, 5, -4]}
+            intensity={2}
+          />
+
+          <Physics gravity={[0, 0, 0]}>
+            <Pointer isActive={isActive} />
+
+            {spheres.map((props, index) => (
+              <SphereGeo
+                key={index}
+                {...props}
+                material={
+                  materials[index % materials.length]
+                }
+                isActive={isActive}
+              />
+            ))}
+          </Physics>
+
+          <Environment
+            files="/models/char_enviorment.hdr"
+            environmentIntensity={0.5}
+            environmentRotation={[0, 4, 2]}
+          />
+
+          <EffectComposer enableNormalPass={false}>
+            <N8AO
+              color="#0f002c"
+              aoRadius={2}
+              intensity={1.15}
             />
-          ))}
-        </Physics>
-        <Environment
-          files="/models/char_enviorment.hdr"
-          environmentIntensity={0.5}
-          environmentRotation={[0, 4, 2]}
-        />
-        <EffectComposer enableNormalPass={false}>
-          <N8AO color="#0f002c" aoRadius={2} intensity={1.15} />
-        </EffectComposer>
-      </Canvas>
-    </div>
+          </EffectComposer>
+        </Canvas>
+        )}
+      </div>
+    </WebGLErrorBoundary>
   );
 };
 
